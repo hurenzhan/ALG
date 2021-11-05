@@ -11,7 +11,7 @@
 // 1. 任何场景
 
 function quicksort(list: number[], leftIndex: number, rightIndex: number) {
-    if (leftIndex > rightIndex) return; // 大的必须在右边，因为是从下一个开始对比，会出现一个大的永远在左边，所以 return
+    if (leftIndex > rightIndex) return; // 左坐标已经越过右坐标，说明没有能比较的数了
 
     // 基准数
     const temp = list[leftIndex];
