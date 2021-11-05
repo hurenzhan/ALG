@@ -20,7 +20,9 @@ const numList: number[] = [88, 3, 5, 2, MAX_NUM, 3, 99];
 const pailList: number[] = new Array(MAX_NUM + 1).fill(0);
 
 // 给数字对应的桶累加次数
-numList.forEach((i: number) => pailList[i] += 1);
+numList.forEach((i: number) => {
+    pailList[i] += 1
+});
 
 // 遍历并打印标记过的桶
 for (let i = 0; i <= MAX_NUM + 1; i++) {
