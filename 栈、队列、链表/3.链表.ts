@@ -50,39 +50,36 @@ class Linked {
 
 // 双数组实现链表
 class ArrayLinked {
-    data: number[]; // 存放数据
+    data: any[]; // 存放数据
     right: number[];    // 存放数据的右指针指向坐标
     len: number;    // 长度
+    head: number;    // 头指针
 
     constructor() {
         this.data = [];
         this.right = [];
         this.len = 0;
+        this.head = 0;
     }
 
-    add(index: number, p?: number, value?: number) {
+    add(index: number, p: number, value: any) {
         const len = this.len;
-        if (arguments.length < 3) {
-            value = index;
-            index = len;
-            p = index + 1;
-        }
-
-        if (this.len) {
+        if (!len) {
+            this.data[p] = value
+        } else {
             this.right[p] = this.right[index];
             this.right[index] = p;
             this.data[p] = value;
-        } else {
-            this.data[p] = value;
         }
-        this.len++;
+        this.len = this.data.length;
     }
 
 }
 
 const l = new ArrayLinked();
-l.add(1);
-l.add(3);
-l.add(5);
+l.add(0, 3, 'a');
+l.add(3, 5, 'b');
+l.add(5, 7, 'c');
+l.add(3, 4, 'gg');
 console.log(l)
 // console.log(l.data[l.right[2]])
